@@ -20,8 +20,7 @@ const Home = ({ user, setUser, setToken }) => {
     if (view === 'home' && user) {
       return (
         <div style={styles.userContainer}>
-          <p>Welcome, {user.name}!</p>
-          <img src={user.picture} alt="User Avatar" style={styles.avatar} />
+          <p>Welcome, {user.name}</p>
           <p>Email: {user.email}</p>
           <button style={styles.button} onClick={handleLogout}>
             Logout
@@ -33,7 +32,7 @@ const Home = ({ user, setUser, setToken }) => {
     if (view === 'login') {
       return (
         <div style={styles.formContainer}>
-          <Login setUser={setUser} setToken={setToken} />
+          <Login setUser={setUser} setToken={setToken} setView={setView} />
           <p style={styles.switchText}>
             Don't have an account?{' '}
             <button style={styles.linkButton} onClick={() => setView('signup')}>

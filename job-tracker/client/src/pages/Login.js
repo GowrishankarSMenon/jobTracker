@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ setUser, setToken }) => {
+const Login = ({ setUser, setToken, setView }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false); // Loading state
@@ -27,7 +27,7 @@ const Login = ({ setUser, setToken }) => {
       localStorage.setItem('authToken', response.data.token);
 
       // Redirect to home page
-      navigate('/');
+      setView('home');
     } catch (error) {
       console.error('Login error:', error);
 

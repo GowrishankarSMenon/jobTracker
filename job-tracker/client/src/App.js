@@ -30,6 +30,7 @@ const App = () => {
         </nav>
         <Routes>
           <Route path="/" element={<Home user={user} setUser={setUser} setToken={setToken} />} />
+          <Route path="/home" element={<Home user={user} setUser={setUser} setToken={setToken} />} />
           <Route path="/login" element={<Login setUser={setUser} setToken={setToken} />} />
           <Route path="/signup" element={<Signup setUser={setUser} setToken={setToken} />} />
         </Routes>

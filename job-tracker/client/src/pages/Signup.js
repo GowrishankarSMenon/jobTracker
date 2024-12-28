@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 const Signup = ({ setUser, setToken }) => {
   const [email, setEmail] = useState('');
@@ -23,7 +24,7 @@ const Signup = ({ setUser, setToken }) => {
       localStorage.setItem('authToken', response.data.token);
 
 
-      // navigate('/login'); // Uncomment if using react-router
+      Navigate('/login'); // Uncomment if using react-router
     } catch (error) {
       console.error('Signup error:', error);
 
