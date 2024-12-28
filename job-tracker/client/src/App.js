@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 const App = () => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('authToken')); // Retrieve token if available
+  const [view, setView] = useState('login'); // Tracks current view: 'login', 'signup', or 'home'
 
   const navigate = useNavigate();
 
@@ -31,7 +32,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home user={user} setUser={setUser} setToken={setToken} />} />
           <Route path="/home" element={<Home user={user} setUser={setUser} setToken={setToken} />} />
-          <Route path="/login" element={<Login setUser={setUser} setToken={setToken} />} />
+          <Route path="/login" element={<Login setUser={setUser} setToken={setToken} setView={setView} />} />
           <Route path="/signup" element={<Signup setUser={setUser} setToken={setToken} />} />
         </Routes>
       </Auth0Provider>

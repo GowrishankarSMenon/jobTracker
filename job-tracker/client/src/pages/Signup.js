@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Use the hook
 
 const Signup = ({ setUser, setToken }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false); // Loading state for UX
   const [errorMessage, setErrorMessage] = useState(''); // Error message for better feedback
+
+  const navigate = useNavigate(); // Initialize the navigate function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +25,8 @@ const Signup = ({ setUser, setToken }) => {
       // Store token in localStorage for persistence
       localStorage.setItem('authToken', response.data.token);
 
-
-      Navigate('/login'); // Uncomment if using react-router
+      // Redirect to the login page
+      navigate('/login'); // Use navigate to go to '/login'
     } catch (error) {
       console.error('Signup error:', error);
 
